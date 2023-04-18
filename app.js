@@ -1,0 +1,57 @@
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var usersRouter = require('./routes/users');
+const produitRouter = require('./routes/produits');
+const commanderRouter = require('./routes/commande')
+const user=require('./models/user');
+const commande=require('./models/commande');
+const produit=require('./models/produits');
+
+
+var app = express();
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use((req, res, next) => {//hediya nhotouha bch naatiw acces lel front eli howa localhost 3000 bch yestaamel get,post,put,delete 
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Request-Methods', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  next();
+});
+
+app.use('/commande', commanderRouter);
+app.use('/produit', produitRouter);
+app.use('/users', usersRouter);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+//user.hasMany(commande);
+//commande.belongsTo(user);
+
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+app.listen(5000, function () {
+  console.log(`Votre app est disponible sur localhost: 5000 !`);
+});
+
+module.exports = app;
