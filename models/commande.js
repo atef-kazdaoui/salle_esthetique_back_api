@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config/cnx");
+const user = require("./user"); 
 const Commandesmodel = sequelize.define(
   "Commandes",
   {
@@ -10,15 +11,62 @@ const Commandesmodel = sequelize.define(
     },
     nom_commande: {
       type: DataTypes.STRING,
-      allowNull:false}
+     },
+      
 
-    
       
   },
   {
     timestamps: false,
   }
 );
+Commandesmodel.associate=models=>{
+  Commandesmodel.hasMany(models.produit,{
+    onDelete:"cascade"
+  });
+  Commandesmodel.hasOne(models.user,{
+    onDelete:"cascade"
+  });
+}
 
-Commandesmodel.sync({ alter: true });//bch tamelek synchronisation avec la base de donneés 
 module.exports = Commandesmodel;
+
+ 
+/**
+ *module.exports =(sequelize,DataType)=>{
+    
+    const Commandesmodel = sequelize.define(
+      "Commandes",
+      {
+        idcommande: {
+          type: DataTypes.INTEGER,
+          autoIncrement: true,
+          primaryKey: true,
+        },
+        nom_commande: {
+          type: DataTypes.STRING,
+        },
+          
+    
+          
+      },
+      {
+        timestamps: false,
+      }
+    );
+    Commandesmodel.associate=models=>{
+      Commandesmodel.hasMany(models.produit,{
+        onDelete:"cascade"
+      });
+      Commandesmodel.hasOne(models.user,{
+        onDelete:"cascade"
+      });
+    }
+    
+    return Commandesmodel;
+  
+
+  }
+ 
+ */
+  

@@ -31,6 +31,17 @@ const Produitsmodel = sequelize.define(
     timestamps: false,
   }
 );
+Produitsmodel.associate=models=>{
+  Produitsmodel.hasMany(models.commande,{
+    onDelete:"cascade"
+  });
+  Produitsmodel.hasMany(models.user,{
+    onDelete:"cascade"
+  });
+  
+}
 
-Produitsmodel.sync({ alter: true });//bch tamelek synchronisation avec la base de donneés 
 module.exports = Produitsmodel;
+ 
+
+

@@ -9,6 +9,9 @@ const commanderRouter = require('./routes/commande')
 const user=require('./models/user');
 const commande=require('./models/commande');
 const produit=require('./models/produits');
+const bodyParser = require('body-parser');
+
+
 
 
 var app = express();
@@ -19,6 +22,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next) => {//hediya nhotouha bch naatiw acces lel front eli howa localhost 3000 bch yestaamel get,post,put,delete 
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -36,8 +40,9 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-//user.hasMany(commande);
-//commande.belongsTo(user);
+
+
+
 
 
 // error handler

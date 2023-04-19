@@ -1,6 +1,8 @@
 const clientservice = require('../../models/user');
 const bcrypt = require('bcrypt');
 const Joi = require('joi');
+const db =require('../../config/cnx')
+
 const schema = Joi.object({
   nom: Joi.string().required(),
   prenom: Joi.string().required(),
