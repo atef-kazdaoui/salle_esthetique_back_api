@@ -24,8 +24,6 @@ const Produitsmodel = sequelize.define(
       type: DataTypes.INTEGER,
       defaultValue: null 
   }
-    
-      
   },
   {
     timestamps: false,
@@ -38,10 +36,5 @@ Produitsmodel.associate=models=>{
   Produitsmodel.hasMany(models.user,{
     onDelete:"cascade"
   });
-  
 }
-
 module.exports = Produitsmodel;
- 
-
-

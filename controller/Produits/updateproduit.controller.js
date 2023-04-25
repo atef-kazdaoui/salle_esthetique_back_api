@@ -15,6 +15,7 @@ const updateproduit = async (req, res) => {
     }, { where: { idproduit: req.params.id } });
     const updatedClient = await Produitsmodel.findOne({ where: { idproduit: req.params.id } });
     res.status(200).json({ updatedClient });
+    
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }

@@ -10,10 +10,10 @@ const auth=require('../middlewear/auth');
 //-----------------------------------------------------------------------------------
 router.post("/inscription", ajoutclient.ajouterclient);
 router.post("/login",logincontroller.loginclient);
-router.get('/find/:id',auth,findClientbyID.findClientbyID);
-router.get('/findall',auth,findall.findAll);
-router.patch('/update/:id',auth,update.updateclient);
-router.delete('/delete/:id',auth,supprimer.deleteClient);
+router.get('/find/:id',findClientbyID.findClientbyID);
+router.get('/findall',findall.findAll);
+router.patch('/update/:id',update.updateclient);
+router.delete('/delete/:id',supprimer.deleteClient);
 
 
 //------------------------------------------------------------------------------------

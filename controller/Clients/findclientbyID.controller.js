@@ -3,7 +3,7 @@ const Clientsmodel = require('../../models/user');
 const findClientbyID = async (req, res) => {
   try {
     
-    const client = await Clientsmodel.findOne({ where: { id:req.params.id } });
+    const client = await Clientsmodel.findOne({ where: { iduser:req.params.id } });
     if (!client) {
       return res.status(404).json({ erreur: "Client not found" });
     }else {

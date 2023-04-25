@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config/cnx");
 const user = require("./user"); 
+const produits = require("./produits");
 const Commandesmodel = sequelize.define(
   "Commandes",
   {
@@ -9,64 +10,39 @@ const Commandesmodel = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
-    nom_commande: {
+    frequence_commande: {
       type: DataTypes.STRING,
-     },
-      
-
-      
+    },
+    nombre_commande: {
+      type: DataTypes.STRING,
+    },
+    id_user: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: user,
+        key: "iduser"
+      }
+    },
+    id_produit: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: produits,
+        key: "idproduit"
+      }
+    }
   },
   {
     timestamps: false,
   }
 );
-Commandesmodel.associate=models=>{
-  Commandesmodel.hasMany(models.produit,{
-    onDelete:"cascade"
+Commandesmodel.associate = (models) => {
+  Commandesmodel.hasMany(models.produit, {
+    onDelete: "cascade"
   });
-  Commandesmodel.hasOne(models.user,{
-    onDelete:"cascade"
+  Commandesmodel.hasOne(models.user, {
+    onDelete: "cascade"
   });
-}
-
+};
 module.exports = Commandesmodel;
-
- 
-/**
- *module.exports =(sequelize,DataType)=>{
-    
-    const Commandesmodel = sequelize.define(
-      "Commandes",
-      {
-        idcommande: {
-          type: DataTypes.INTEGER,
-          autoIncrement: true,
-          primaryKey: true,
-        },
-        nom_commande: {
-          type: DataTypes.STRING,
-        },
-          
-    
-          
-      },
-      {
-        timestamps: false,
-      }
-    );
-    Commandesmodel.associate=models=>{
-      Commandesmodel.hasMany(models.produit,{
-        onDelete:"cascade"
-      });
-      Commandesmodel.hasOne(models.user,{
-        onDelete:"cascade"
-      });
-    }
-    
-    return Commandesmodel;
-  
-
-  }
- 
- */
-  
