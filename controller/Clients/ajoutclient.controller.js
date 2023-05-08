@@ -33,6 +33,7 @@ const ajouterclient = async (req, res) => {
             adresse_domicile: req.body.adresse_domicile,
             numero_telephone: req.body.numero_telephone,
             password: hashedPassword,
+            image:req.file.filename
             
             
           }).then(() => {

@@ -7,14 +7,16 @@ const findall = require('../controller/Clients/findallclient.controller');
 const update= require('../controller/Clients/updateclient.controller');
 const supprimer=require('../controller/Clients/deleteclient.controller');
 const auth=require('../middlewear/auth');
+const multer=require('../middlewear/multer')
+const accesadmin=require('../controller/Clients/accesadmin')
 //-----------------------------------------------------------------------------------
-router.post("/inscription", ajoutclient.ajouterclient);
+router.post("/inscription",multer,ajoutclient.ajouterclient);
 router.post("/login",logincontroller.loginclient);
-router.get('/find/:id',findClientbyID.findClientbyID);
-router.get('/findall',findall.findAll);
-router.patch('/update/:id',update.updateclient);
-router.delete('/delete/:id',supprimer.deleteClient);
-
+router.get('/find/:id',auth,findClientbyID.findClientbyID);
+router.get('/findall',auth,findall.findAll);
+router.patch('/update/:id',auth,update.updateclient);
+router.delete('/delete/:id',auth,supprimer.deleteClient);
+router.patch('/access/:id',auth,accesadmin.accesadmin)
 
 //------------------------------------------------------------------------------------
 module.exports = router;

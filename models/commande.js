@@ -16,6 +16,15 @@ const Commandesmodel = sequelize.define(
     nombre_commande: {
       type: DataTypes.STRING,
     },
+    date_commande: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.NOW, 
+    },
+    montant_total: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
     id_user: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -37,6 +46,7 @@ const Commandesmodel = sequelize.define(
     timestamps: false,
   }
 );
+
 Commandesmodel.associate = (models) => {
   Commandesmodel.hasMany(models.produit, {
     onDelete: "cascade"
@@ -45,4 +55,5 @@ Commandesmodel.associate = (models) => {
     onDelete: "cascade"
   });
 };
+
 module.exports = Commandesmodel;

@@ -1,5 +1,7 @@
 const Produitsmodel = require('../../models/produits');
-const  sequelize = require("sequelize");
+const sequelize = require('sequelize');
+
+
 const ajouterproduit = async (req, res) => {
   try {
     const existingProduct = await Produitsmodel.findOne({ where: { nom_produit: req.body.nom_produit } });
@@ -9,15 +11,19 @@ const ajouterproduit = async (req, res) => {
         { nombre_produit: sequelize.literal(`nombre_produit + ${req.body.nombre_produit}`) },
         { where: { nom_produit: req.body.nom_produit } }
       );
-      return res.status(400).json("on a deja ce produit et on a ajouter le nombre "+ req.body.nombre_produit+" au nombre deja enregistrer " );
+      return res
+        .status(400)
+        .json(`Le produit ${req.body.nom_produit} existe déjà. Nous avons ajouté ${req.body.nombre_produit} à sa quantité.`);
     } else {
-      await Produitsmodel.create({
+      const produit = await Produitsmodel.create({
         nom_produit: req.body.nom_produit,
         description_produit: req.body.description_produit,
         prix_produit: req.body.prix_produit,
-        nombre_produit: req.body.nombre_produit || 0 // set default value to 0 if not provided
+        nombre_produit: req.body.nombre_produit,
+        image:req.file.filename
+        
       });
-      return res.status(200).send("ajout de produits avec succès");
+      return res.status(200).json({ message: 'Le produit a été ajouté avec succès', produit: produit });
     }
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -26,5 +32,5 @@ const ajouterproduit = async (req, res) => {
 
 module.exports = {
   ajouterproduit,
-};
 
+};

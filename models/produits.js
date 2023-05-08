@@ -23,8 +23,11 @@ const Produitsmodel = sequelize.define(
     nombre_produit: {
       type: DataTypes.INTEGER,
       defaultValue: null 
-  }
+  },image: {
+    type: DataTypes.STRING, // or BLOB, depending on the type of image you want to store
+    allowNull: false // 
   },
+},
   {
     timestamps: false,
   }
@@ -36,5 +39,10 @@ Produitsmodel.associate=models=>{
   Produitsmodel.hasMany(models.user,{
     onDelete:"cascade"
   });
+  Produitsmodel.hasOne(models.categories,{
+    onDelete:"cascade"
+  })
 }
 module.exports = Produitsmodel;
+
+

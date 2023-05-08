@@ -32,6 +32,14 @@ const Clientsmodel = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    role: {
+      type: DataTypes.STRING,
+      defaultValue: "utilisateur",
+      allowNull: false
+    },image: {
+      type: DataTypes.STRING, // or BLOB, depending on the type of image you want to store
+      allowNull: false // 
+    }
   }, 
   
   {
@@ -49,7 +57,14 @@ Clientsmodel.associate=models=>{
   console.log('La table User a été synchronisée avec la base de données');
 })();
 
+ * 
  */
 
+ 
 
 module.exports = Clientsmodel;
+
+
+
+
+

@@ -3,13 +3,13 @@ const router = express.Router();
 const ajouter=require('../controller/Produits/ajouterP.controller');
 const findall=require('../controller/Produits/findallP.controller');
 const findbyID=require('../controller/Produits/findproduitbyID.controller');
-const supprimer=require('../controller/Produits/delete.produit')
+const supprimer=require('../controller/Produits/delete.produit');
 const modifier=require('../controller/Produits/updateproduit.controller');
-const ajouterC=require('../controller/Commande/ajouter.controller')
-router.post('/ajouter',ajouter.ajouterproduit);
-router.post('/ajoutercommande',ajouterC.ajoutercommande)
-router.get('/find',findall.findAll);
-router.get('/find/:id',findbyID.findproduitbyID);
-router.delete('/delete/:id',supprimer.deleteProduit);
-router.patch('/update/:id',modifier.updateproduit);
+const multer=require('../middlewear/multer')
+const auth=require('../middlewear/auth');
+router.post('/ajouter',multer,ajouter.ajouterproduit);
+router.get('/find',auth,findall.findAll);
+router.get('/find/:id',auth,findbyID.findproduitbyID);
+router.delete('/delete/:id',auth,supprimer.deleteProduit);
+router.patch('/update/:id',auth,modifier.updateproduit);
 module.exports = router;
