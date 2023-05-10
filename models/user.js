@@ -41,8 +41,7 @@ const Clientsmodel = sequelize.define(
       allowNull: false // 
     }
   }, 
-  
-  {
+   {
     timestamps: false,
   }
 );
@@ -51,19 +50,11 @@ Clientsmodel.associate=models=>{
     onDelete:"cascade"
     });    
 }
-/**
- * (async () => {
+(async () => {
   await sequelize.sync({ force: true }); // Synchronisation avec la base de données en créant les tables, cette opération supprime les tables existantes
   console.log('La table User a été synchronisée avec la base de données');
 })();
-
- * 
- */
-
- 
-
 module.exports = Clientsmodel;
-
 
 
 

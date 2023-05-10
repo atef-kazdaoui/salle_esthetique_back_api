@@ -7,6 +7,8 @@ var usersRouter = require('./routes/users');
 const produitRouter = require('./routes/produits');
 const commanderRouter = require('./routes/commande');
 const categoriesRouter = require('./routes/categories');
+const produit_commandeRouter = require('./routes/produit_commande');
+
 const bodyParser = require('body-parser');
 var app = express();
 // view engine setup
@@ -30,6 +32,7 @@ app.use('/commande', commanderRouter);
 app.use('/produit', produitRouter);
 app.use('/users', usersRouter);
 app.use('/categories',categoriesRouter);
+app.use("/ass",produit_commandeRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

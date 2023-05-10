@@ -33,27 +33,24 @@ const Commandesmodel = sequelize.define(
         key: "iduser"
       }
     },
-    id_produit: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: produits,
-        key: "idproduit"
-      }
-    }
+    
   },
   {
     timestamps: false,
   }
 );
-
 Commandesmodel.associate = (models) => {
-  Commandesmodel.hasMany(models.produit, {
-    onDelete: "cascade"
-  });
+  
   Commandesmodel.hasOne(models.user, {
     onDelete: "cascade"
   });
+  Commandesmodel.hasMany(models.produit_commane,{
+    onDelete: "cascade"
+  })
 };
+
+ 
+
+
 
 module.exports = Commandesmodel;
