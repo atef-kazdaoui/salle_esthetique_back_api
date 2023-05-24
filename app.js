@@ -9,6 +9,7 @@ const commanderRouter = require('./routes/commande');
 const categoriesRouter = require('./routes/categories');
 const produit_commandeRouter = require('./routes/produit_commande');
 const panierRouter=require('./routes/panier')
+const declarationRouter = require('./routes/declaration');
 const bodyParser = require('body-parser');
 var app = express();
 // view engine setup
@@ -34,6 +35,7 @@ app.use('/users', usersRouter);
 app.use('/categories',categoriesRouter);
 app.use("/ass",produit_commandeRouter)
 app.use("/panier",panierRouter)
+app.use('/declaration',declarationRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -48,9 +48,5 @@ Commandesmodel.associate = (models) => {
     onDelete: "cascade"
   })
 };
-
- 
-
-
-
 module.exports = Commandesmodel;
+
