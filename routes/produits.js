@@ -9,7 +9,7 @@ const multer=require('../middlewear/multer')
 const auth=require('../middlewear/auth');
 const filtre=require('../controller/Produits/Filtre.produit.controller')
 router.post('/ajouter',multer,ajouter.ajouterproduit);
-router.get('/find',auth,findall.findAll);
+router.get('/find',findall.findAll);
 router.get('/filtre/:id',filtre.getProduitsByCategorie);
 router.get('/find/:id',findbyID.findproduitbyID);
 router.delete('/delete/:id',auth,supprimer.deleteProduit);
