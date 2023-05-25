@@ -4,16 +4,16 @@ const ajouterdeclaration = async (req, res) => {
     try {
       await Declarationmodel.create({
         message: req.body.message,
-        iduser: req.body.id_produit
+        iduser: req.params.id
       });
   
-      console.log(req.body.nom_categorie);
+      console.log("iduser :", req.params.id);
       res.status(200).json({ message: "Ajout de la declaration avec succes" });
   
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
   };
-  module.exports = {
+module.exports = {
     ajouterdeclaration,
-  };
+};
