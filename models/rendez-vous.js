@@ -12,17 +12,13 @@ const Rendez_vous_model = sequelize.define(
     id_user: {
       type: DataTypes.INTEGER,
       allowNull: true,
+      defaultValue:null,
       
     },
     date_diponible: {
       type: DataTypes.DATE,
       allowNull: false,
-    },
-    rendez_vous: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: null,
-              },
+    }
   },
   {
     timestamps: false,
