@@ -9,7 +9,10 @@
     "bcrypt": "^5.1.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+<<<<<<< HEAD
     "dotenv": "^16.1.4",
+=======
+>>>>>>> effee5d1ff00343b9f0741dcb15bd858fbae4571
     "express": "~4.16.1",
     "express-session": "^1.17.3",
     "http-errors": "~1.6.3",

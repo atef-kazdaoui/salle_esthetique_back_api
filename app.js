@@ -53,7 +53,13 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+<<<<<<< HEAD
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>console.log(`Votre app est disponible sur localhost: 5000 !`));
+=======
+app.listen(5000, function () {
+  console.log(`Votre app est disponible sur localhost: 5000 !`);
+});
+>>>>>>> effee5d1ff00343b9f0741dcb15bd858fbae4571
 
 module.exports = app;

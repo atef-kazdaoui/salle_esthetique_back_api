@@ -1,12 +1,23 @@
+<<<<<<< HEAD
 const {Sequelize, DataTypes} = require ('sequelize');
 const sequelize = require ('../config/cnx');
 const Clientsmodel = sequelize.define (
   'Clients',
+=======
+const { Sequelize, DataTypes } = require("sequelize");
+const sequelize = require("../config/cnx");
+const Clientsmodel = sequelize.define(
+  "CLients",
+>>>>>>> effee5d1ff00343b9f0741dcb15bd858fbae4571
   {
     iduser: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
+<<<<<<< HEAD
+=======
+      
+>>>>>>> effee5d1ff00343b9f0741dcb15bd858fbae4571
     },
     nom: {
       type: DataTypes.STRING,
@@ -34,6 +45,7 @@ const Clientsmodel = sequelize.define (
     },
     role: {
       type: DataTypes.STRING,
+<<<<<<< HEAD
       defaultValue: 'utilisateur',
       allowNull: false,
     },
@@ -68,7 +80,36 @@ Clientsmodel.associate = models => {
     );
   }
 }) ();
+=======
+      defaultValue: "utilisateur",
+      allowNull: false
+    },image: {
+      type: DataTypes.STRING, // or BLOB, depending on the type of image you want to store
+      allowNull: false // 
+    }
+  }, 
+   {
+    timestamps: false,
+  }
+);
+Clientsmodel.associate=models=>{
+  Clientsmodel.hasMany(models.commande,{
+    onDelete:"cascade"
+    });    
+}
+/**
+ * (async () => {
+  await sequelize.sync({ force: true }); // Synchronisation avec la base de données en créant les tables, cette opération supprime les tables existantes
+  console.log('La table User a été synchronisée avec la base de données');
+})(); 
+>>>>>>> effee5d1ff00343b9f0741dcb15bd858fbae4571
 
  */
 
 module.exports = Clientsmodel;
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> effee5d1ff00343b9f0741dcb15bd858fbae4571

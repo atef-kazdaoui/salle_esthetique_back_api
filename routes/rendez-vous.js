@@ -3,6 +3,7 @@ const router = express.Router();
 const find=require('../controller/Rendez-vous/findrendez-vous.controller');
 const ajouter=require('../controller/Rendez-vous/ajouterrendez-vous.controller');
 const findbyId =require('../controller/Rendez-vous/findrendez-vousbyID.controller')
+<<<<<<< HEAD
 const find_electron =require('../controller/Rendez-vous/findall.electron');
 const ajouter_rendez_vous_electron=require('../controller/Rendez-vous/ajouter.electron')
 router.get('/find',find.find_rendez_vous);
@@ -11,4 +12,10 @@ router.get('/mes_rendez_vous/:id',findbyId.findbyId);
 router.get('/electron',find_electron.find_electron);
 router.post ('/ajouter_electron', ajouter_rendez_vous_electron.ajouter_rendez_vous_electron);
 
+=======
+
+router.get('/find',find.find_rendez_vous);
+router.post('/ajouter',ajouter.ajouter_rendez_vous);
+router.get('/mes_rendez_vous/:id',findbyId.findbyId)
+>>>>>>> effee5d1ff00343b9f0741dcb15bd858fbae4571
 module.exports = router;
