@@ -1,4 +1,4 @@
-const Clientsmodel = require('../../models/user');
+const Clientsmodel = require('../../models/Clients');
 const accesadmin= async (req,res)=>{
 try{
 Clientsmodel.update({role:"responsable"}, { where: { iduser: req.params.id } })

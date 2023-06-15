@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config/cnx");
-const user=require("../models/user");
+const user=require("./Clients");
 const Declarationsmodel = sequelize.define(
   "Declaration",
   {

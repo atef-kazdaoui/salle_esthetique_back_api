@@ -1,4 +1,4 @@
-const Produitsmodel = require('../../models/produits');
+const Produitsmodel = require('../../models/Produits');
 const findproduitbyID = async (req, res) => {
     try {
       

@@ -1,4 +1,4 @@
-const Rendez_vous_model = require ('../../models/rendez-vous');
+const Rendez_vous_model = require ('../../models/RendezVous');
 
 const ajouter_rendez_vous = async (req, res) => {
   const {

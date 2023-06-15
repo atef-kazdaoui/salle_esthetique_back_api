@@ -1,4 +1,4 @@
-const categoriemodel=require('../../models/categories');
+const categoriemodel=require('../../models/Categories');
 
 const affichcategorie = async (req,res)=>{
 try{

@@ -1,4 +1,4 @@
-const Commandes = require('../../models/commande');
+const Commandes = require('../../models/Commandes');
 
 const ajoutercommande = (req, res) => {
   const { iduser } = req.params; 

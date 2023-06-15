@@ -5,7 +5,7 @@ const ajouter=require('../controller/Rendez-vous/ajouterrendez-vous.controller')
 const findbyId =require('../controller/Rendez-vous/findrendez-vousbyID.controller')
 const find_electron =require('../controller/Rendez-vous/findall.electron');
 const ajouter_rendez_vous_electron=require('../controller/Rendez-vous/ajouter.electron')
-router.get('/find',find.find_rendez_vous);
+router.get('/find',find.findRendezVous);
 router.post('/ajouter',ajouter.ajouter_rendez_vous);
 router.get('/mes_rendez_vous/:id',findbyId.findbyId);
 router.get('/electron',find_electron.find_electron);

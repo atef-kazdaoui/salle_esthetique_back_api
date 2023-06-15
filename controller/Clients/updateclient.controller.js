@@ -1,4 +1,4 @@
-const Clientsmodel = require('../../models/user')
+const Clientsmodel = require('../../models/Clients')
 
 const updateclient = async (req, res) => {
   try {

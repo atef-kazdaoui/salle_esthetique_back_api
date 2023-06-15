@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/cnx');
-const Produits = require('./produits');
-const Commande = require('./commande');
+const Produits = require('./Produits');
+const Commande = require('./Commandes');
 
 const ProduitCommande = sequelize.define("produit_commande", {
   id_produit_commande: {

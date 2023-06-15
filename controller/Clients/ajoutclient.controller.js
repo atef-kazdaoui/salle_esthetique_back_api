@@ -1,4 +1,4 @@
-const clientservice = require('../../models/user');
+const clientservice = require('../../models/Clients');
 const bcrypt = require('bcrypt');
 const Joi = require('joi');
 

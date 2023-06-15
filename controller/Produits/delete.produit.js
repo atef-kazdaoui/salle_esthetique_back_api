@@ -1,4 +1,4 @@
-const Produitsmodel = require('../../models/produits');
+const Produitsmodel = require('../../models/Produits');
 const deleteProduit = async (req, res) => {
   try {
     const produit = await Produitsmodel.findOne({ where: { idproduit: req.params.id } });

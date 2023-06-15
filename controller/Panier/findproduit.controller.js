@@ -1,7 +1,7 @@
-const Panier = require('../../models/panier');
+const Panier = require('../../models/Paniers');
 const afficherPanier=async(req,res)=>{
 try{ 
- const panierItems=await Panier.findAll({where: { id_user:req.params.id }})
+ const panierItems=await Panier.findAll({where: { iduser:req.params.id }})
 return res.status(200).json(panierItems);
 
 }catch(err){

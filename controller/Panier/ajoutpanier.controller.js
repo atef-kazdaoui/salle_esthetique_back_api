@@ -1,9 +1,10 @@
-const Panier = require("../../models/panier");
+const Panier = require("../../models/Paniers");
 
 // Méthode pour ajouter un produit dans le panier d'un utilisateur
 const ajouterProduitAuPanier = async (req, res) => {
   try {
     const { iduser, id_produit, quantite } = req.body;
+    console.log("id",iduser,"produit",id_produit,quantite);
 
     // Vérifier si un panier existe déjà pour l'utilisateur
     const panierExist = await Panier.findOne({
@@ -15,6 +16,8 @@ const ajouterProduitAuPanier = async (req, res) => {
       const produitExist = await Panier.findOne({
         where: { iduser, id_produit },
       });
+      
+      
 
       if (produitExist) {
         // Si le produit est déjà présent dans le panier, mettre à jour la quantité en ajoutant la nouvelle quantité

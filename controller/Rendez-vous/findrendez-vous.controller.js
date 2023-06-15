@@ -1,17 +1,17 @@
-const Rendez_vous_model = require('../../models/rendez-vous');
+const RendezVous = require('../../models/RendezVous');
 
-const find_rendez_vous = async (req, res) => {
+const findRendezVous = async (req, res) => {
   try {
-    const rendezVousDisponibles = await Rendez_vous_model.findAll({
-      where: { iduser: null }
+    const rendezVousDisponibles = await RendezVous.findAll({
+      where: { iduser: null },
     });
 
     res.status(200).json({ rendezVousDisponibles });
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
 module.exports = {
-  find_rendez_vous,
+  findRendezVous,
 };

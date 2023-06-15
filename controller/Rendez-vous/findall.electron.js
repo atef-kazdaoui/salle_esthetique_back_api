@@ -1,4 +1,4 @@
-const Rendez_vous_model = require ('../../models/rendez-vous');
+const Rendez_vous_model = require ('../../models/RendezVous');
 
 const find_electron = async (req, res) => {
   try {

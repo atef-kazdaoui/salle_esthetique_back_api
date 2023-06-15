@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config/cnx");
-const categories=require("../models/categories");
+const categories=require("./Categories");
 const Produitsmodel = sequelize.define(
   "Produits",
   {

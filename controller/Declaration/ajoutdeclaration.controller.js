@@ -1,4 +1,4 @@
-const Declarationmodel = require('../../models/declaration');
+const Declarationmodel = require('../../models/Declaration');
 
 const ajouterdeclaration = async (req, res) => {
     try {
