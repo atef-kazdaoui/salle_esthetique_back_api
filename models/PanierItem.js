@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config/cnx");
+const Produitsmodel = require("./Produits");
 
 const PanierItem = sequelize.define(
   "PanierItems",
@@ -16,6 +17,10 @@ const PanierItem = sequelize.define(
     id_produit: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: Produitsmodel, // Référence le modèle Produitsmodel
+        key: 'idproduit'
+      }
     },
     quantite: {
       type: DataTypes.INTEGER,

@@ -49,7 +49,7 @@ Produitsmodel.associate = (models) => {
   Produitsmodel.hasMany(models.Clients,{
     onDelete:"cascade"
   });
-  Produitsmodel.hasMany(models.produit_commane,{
+  Produitsmodel.hasMany(models.produit_commande,{
     onDelete:"cascade"
   });
   Produitsmodel.belongsTo(models.categories, { foreignKey: 'categorieId' });

@@ -1,6 +1,8 @@
-const {DataTypes} = require ('sequelize');
-const sequelize = require ('../config/cnx');
-const Clientsmodel = sequelize.define (
+// Clientsmodel.js
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/cnx');
+
+const Clientsmodel = sequelize.define(
   'Clients',
   {
     iduser: {
@@ -48,13 +50,12 @@ const Clientsmodel = sequelize.define (
 );
 
 Clientsmodel.associate = models => {
-  Clientsmodel.hasMany (models.commande, {
+  Clientsmodel.hasMany(models.commande, {
     onDelete: 'cascade',
   });
 };
-
 /**
- *(async () => {
+ *  (async () => {
   try {
     await sequelize.authenticate (); // Vérifier la connexion à la base de données
     await sequelize.sync ({force: true}); // Synchroniser avec la base de données en créant les tables (cela supprime les tables existantes)
@@ -69,8 +70,9 @@ Clientsmodel.associate = models => {
   }
 }) ();
 
- 
+ * 
  */
+
  
 
 module.exports = Clientsmodel;

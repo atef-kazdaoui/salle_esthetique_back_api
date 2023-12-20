@@ -1,10 +1,11 @@
-// Modèle Paniers
-const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = require("../config/cnx");
-const PanierItem = require("./PanierItem");
+// Paniers.js
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/cnx');
+const PanierItem = require('./PanierItem');
+const Clientsmodel = require('./Clients');
 
 const Panier = sequelize.define(
-  "Paniers",
+  'Paniers',
   {
     idpanier: {
       type: DataTypes.INTEGER,
@@ -24,6 +25,9 @@ const Panier = sequelize.define(
 
 // Relation avec PanierItems
 Panier.hasMany(PanierItem, { foreignKey: 'idpanier' });
-PanierItem.belongsTo(Panier, { foreignKey: 'idpanier',  as: 'PanierItems' });
+PanierItem.belongsTo(Panier, { foreignKey: 'idpanier', as: 'PanierItems' });
+
+// Ajoute la relation avec Clients
+Panier.belongsTo(Clientsmodel, { foreignKey: 'iduser', as: 'Client' });
 
 module.exports = Panier;

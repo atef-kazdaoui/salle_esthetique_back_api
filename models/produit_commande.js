@@ -16,6 +16,10 @@ const ProduitCommande = sequelize.define("produit_commande", {
   id_commande: {
     type: DataTypes.INTEGER,
     allowNull: false,
+  },
+  quantite: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
   }
 }, {
   timestamps: false,
