@@ -11,10 +11,10 @@ const Commandesmodel = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
-    frequence_commande: {
+    adresse_livraison: {
       type: DataTypes.STRING,
     },
-    nombre_commande: {
+    adresse_facturation: {
       type: DataTypes.STRING,
     },
     date_commande: {
@@ -33,18 +33,14 @@ const Commandesmodel = sequelize.define(
         model: user,
         key: "iduser"
       }
-    },
-    idpanier: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    }
     
   },
   {
     timestamps: false,
   }
 );
-Commandesmodel.belongsTo(Panier, { foreignKey: 'idpanier' });
+
 Commandesmodel.associate = (models) => {
   
   Commandesmodel.hasOne(models.user, {

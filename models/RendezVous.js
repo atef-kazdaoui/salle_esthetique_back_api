@@ -16,7 +16,7 @@ const RendezVous = sequelize.define(
       defaultValue: null,
     },
     date_heure_disponible: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATE(6), // Précision de 6 chiffres pour inclure les millisecondes
       allowNull: false,
     },
   },

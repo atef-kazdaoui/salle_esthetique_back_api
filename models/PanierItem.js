@@ -18,7 +18,7 @@ const PanierItem = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: Produitsmodel, // Référence le modèle Produitsmodel
+        model: Produitsmodel,
         key: 'idproduit'
       }
     },

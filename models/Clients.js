@@ -53,7 +53,12 @@ Clientsmodel.associate = models => {
   Clientsmodel.hasMany(models.commande, {
     onDelete: 'cascade',
   });
+  Clientsmodel.hasOne(models.Panier, {
+    onDelete: 'cascade',
+    foreignKey: 'iduser',
+  });
 };
+
 /**
  *  (async () => {
   try {
